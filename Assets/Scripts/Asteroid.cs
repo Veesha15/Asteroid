@@ -6,9 +6,10 @@ public class Asteroid : MonoBehaviour
 {
     private Rigidbody2D myRigidBody2D;
     private GameObject target;
-    private int speed = 7;
+    private float randomForce;
 
-    public float stoppingDistance = 0.1f;
+    private float forceMin = 1;
+    private float forceMax = 8;
 
     private void Awake()
     {
@@ -16,13 +17,10 @@ public class Asteroid : MonoBehaviour
         target = GameObject.Find("Player"); // TODO: change how to get this reference
     }
 
-    void FixedUpdate()
+    private void Start()
     {
-        Vector3 direction = (target.transform.position - transform.position);
-
-        if (direction.magnitude > stoppingDistance)
-        {
-            myRigidBody2D.MovePosition(transform.position + speed * Time.fixedDeltaTime * direction.normalized);
-        }
+        randomForce = Random.Range(forceMin, forceMax);
+        Vector3 moveDirection = (target.transform.position - transform.position).normalized;
+        myRigidBody2D.AddForce(moveDirection * randomForce, ForceMode2D.Impulse);
     }
 }

@@ -4,30 +4,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D myRigidbody;
-    
-    private float moveDirection;
-    private float turnDirection;
-    
-    private float moveSpeed = 8;
-    private float turnSpeed = 5;
+    private Rigidbody2D myRigidBody2D;
+    private float speed = 8;
 
 
     private void Awake()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();
+        myRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
-    {
-        moveDirection = Input.GetAxis("Vertical");
-        turnDirection = Input.GetAxis("Horizontal");
-    }
 
     void FixedUpdate()
     {
-        myRigidbody.velocity = transform.up * moveDirection * moveSpeed;
-        myRigidbody.rotation += (-turnDirection * turnSpeed); 
+        Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // TODO: should Input be in Update | new keyword in update loop?
+        myRigidBody2D.MovePosition(myRigidBody2D.position + speed * Time.fixedDeltaTime * direction);
     }
 
 
