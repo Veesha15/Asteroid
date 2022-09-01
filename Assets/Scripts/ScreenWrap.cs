@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScreenWrap : MonoBehaviour
 {
     // TODO: Automatically adjust box collider to screen size
+    // TODO: Rather use rigid body to move?
     private void OnTriggerExit2D(Collider2D collision)
     {
         collision.transform.position = new Vector2(-(collision.transform.position.x), -(collision.transform.position.y));
