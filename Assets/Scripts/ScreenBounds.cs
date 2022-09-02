@@ -5,6 +5,7 @@ using UnityEngine;
 
 // TODO: Automatically adjust box collider to screen size
 // TODO: Rather use rigid body to move?
+// TODO: remove hard coded numbers
 public class ScreenBounds : MonoBehaviour
 {
     public static event Action<GameObject> OnBulletOutOfBounds;
@@ -17,7 +18,19 @@ public class ScreenBounds : MonoBehaviour
         }
         else
         {
-            collision.transform.position = new Vector2(-(collision.transform.position.x), -(collision.transform.position.y));
+            ScreenWrap(collision);
+        }
+    }
+
+    private void ScreenWrap(Collider2D _collider)
+    {
+        if (Mathf.Abs(_collider.transform.position.y) >= 5)
+        {
+            _collider.transform.position = new Vector2((_collider.transform.position.x), -(_collider.transform.position.y));
+        }
+        if (Mathf.Abs(_collider.transform.position.x) >= 9)
+        {
+            _collider.transform.position = new Vector2(-(_collider.transform.position.x), (_collider.transform.position.y));
         }
     }
 
