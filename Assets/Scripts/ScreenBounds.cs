@@ -6,6 +6,7 @@ using UnityEngine;
 // TODO: Automatically adjust box collider to screen size
 // TODO: Rather use rigid body to move?
 // TODO: remove hard coded numbers
+// TODO: Catch straggler
 public class ScreenBounds : MonoBehaviour
 {
     public static event Action<GameObject> OnBulletOutOfBounds;

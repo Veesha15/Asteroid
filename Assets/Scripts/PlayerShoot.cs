@@ -13,11 +13,13 @@ public class PlayerShoot : MonoBehaviour
     private void OnEnable()
     {
         ScreenBounds.OnBulletOutOfBounds += RecycleBullet;
+        AsteroidSplit.OnBulletContact += RecycleBullet;
     }
 
     private void OnDisable()
     {
         ScreenBounds.OnBulletOutOfBounds -= RecycleBullet;
+        AsteroidSplit.OnBulletContact += RecycleBullet;
     }
 
     private void Start()

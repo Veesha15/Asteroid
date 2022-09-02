@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D myRigidBody2D;
     private float speed = 5;
 
-
+    
     private void Awake()
     {
         myRigidBody2D = GetComponent<Rigidbody2D>();
@@ -18,4 +18,6 @@ public class Bullet : MonoBehaviour
     {
         myRigidBody2D.MovePosition(transform.position + speed * Time.fixedDeltaTime * Vector3.up);
     }
+
+
 }

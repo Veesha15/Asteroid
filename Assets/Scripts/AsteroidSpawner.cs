@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    [SerializeField] private Asteroid asteroidPrefab;
+    [SerializeField] private GameObject asteroidPrefab;
     private int spawnRadius = 20;
-    private int spawnAmount = 10;
+    private int spawnAmount = 5;
 
     private void Start()
     {

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: use velocity instead
+// TODO: bullets ignore player collider
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D myRigidBody2D;
