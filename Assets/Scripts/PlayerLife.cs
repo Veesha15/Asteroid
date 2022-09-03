@@ -8,6 +8,7 @@ public class PlayerLife : MonoBehaviour
     private int lives = 3;
 
     public static event Action OnPlayerDeath;
+    public static event Action<int> OnLifeLost;
 
     private void OnEnable()
     {
@@ -24,13 +25,12 @@ public class PlayerLife : MonoBehaviour
     {
         if (lives == 0)
         {
-            print("game over");
             OnPlayerDeath?.Invoke();
         }
         else
         {
             lives--;
-            print(lives);
+            OnLifeLost?.Invoke(lives);
         }
 
     }

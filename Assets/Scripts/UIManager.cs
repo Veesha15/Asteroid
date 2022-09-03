@@ -10,16 +10,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuScreen, highScoresScreen, gameOverScreen;
     [SerializeField] private TextMeshProUGUI currentScoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
+    [SerializeField] private GameObject[] currentLives;
 
     private void OnEnable()
     {
         PlayerLife.OnPlayerDeath += GameOver;
+        PlayerLife.OnLifeLost += UpdateLives;
         AsteroidSplit.OnDestroyed += UpdateScore;
     }
 
     private void OnDisable()
     {
         PlayerLife.OnPlayerDeath -= GameOver;
+        PlayerLife.OnLifeLost -= UpdateLives;
         AsteroidSplit.OnDestroyed -= UpdateScore;
     }
 
@@ -46,6 +49,12 @@ public class UIManager : MonoBehaviour
     {
         Score.currentScore += _amount;
         currentScoreText.text = Score.currentScore.ToString();
+    }
+
+    // the current life int corresponds to array index
+    private void UpdateLives(int _lives)
+    {
+        currentLives[_lives].SetActive(false);
     }
 
 }
