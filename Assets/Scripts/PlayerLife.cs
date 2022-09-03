@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     private int lives = 3;
+
+    public static event Action OnPlayerDeath;
 
     private void OnEnable()
     {
@@ -22,6 +25,7 @@ public class PlayerLife : MonoBehaviour
         if (lives == 0)
         {
             print("game over");
+            OnPlayerDeath?.Invoke();
         }
         else
         {
