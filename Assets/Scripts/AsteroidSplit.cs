@@ -10,6 +10,7 @@ public class AsteroidSplit : MonoBehaviour
 {
     [SerializeField] GameObject splitInto;
     [SerializeField] private SplitType splitToPerform;
+    [SerializeField] private int pointsToEarn;
 
     private enum SplitType
     {
@@ -20,6 +21,7 @@ public class AsteroidSplit : MonoBehaviour
 
     public static event Action<GameObject> OnBulletContact;
     public static event Action OnPlayerContact;
+    public static event Action<int> OnDestroyed;
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,6 +29,7 @@ public class AsteroidSplit : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             OnBulletContact?.Invoke(collision.gameObject);
+            OnDestroyed?.Invoke(pointsToEarn);
 
             switch (splitToPerform)
             {

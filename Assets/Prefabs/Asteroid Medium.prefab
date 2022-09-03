@@ -161,3 +161,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splitInto: {fileID: 1487759296009917261, guid: 1a62bacfa98856e4ba577e8eaf0c665d, type: 3}
   splitToPerform: 1
+  pointsToEarn: 2
