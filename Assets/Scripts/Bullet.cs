@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: ignore player layer
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D myRigidBody2D;
@@ -16,7 +15,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        myRigidBody2D.MovePosition(transform.position + speed * Time.fixedDeltaTime * Vector3.up);
+        myRigidBody2D.velocity = transform.up *  speed;
     }
 
 

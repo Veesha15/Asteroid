@@ -7,6 +7,7 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform bulletContainer;
+    [SerializeField] Transform bulletPoint; // TODO: needs to be outside of player collider or otherwise set to ignore layer
 
     private Queue<GameObject> bulletPool = new Queue<GameObject>();
     private int bulletAmount = 15;
@@ -49,7 +50,8 @@ public class PlayerShoot : MonoBehaviour
     private void ShootBullet()
     {
         GameObject bulletToShoot = bulletPool.Dequeue();
-        bulletToShoot.transform.position = bulletContainer.transform.position; // TODO: better performance to cache 
+        bulletToShoot.transform.position = bulletPoint.transform.position;
+        bulletToShoot.transform.rotation = bulletPoint.transform.rotation;
         bulletToShoot.SetActive(true);
     }
 
