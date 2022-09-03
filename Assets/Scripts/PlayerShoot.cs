@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: split pool into separate script
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;

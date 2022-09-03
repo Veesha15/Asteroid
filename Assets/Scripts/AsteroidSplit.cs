@@ -19,6 +19,7 @@ public class AsteroidSplit : MonoBehaviour
     }
 
     public static event Action<GameObject> OnBulletContact;
+    public static event Action OnPlayerContact;
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,6 +43,11 @@ public class AsteroidSplit : MonoBehaviour
                     break;
             }
         }
+
+        if (collision.gameObject.layer == 7)
+        {
+            OnPlayerContact?.Invoke();
+        }
         
     }
 
@@ -53,6 +59,8 @@ public class AsteroidSplit : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 
 
 }
