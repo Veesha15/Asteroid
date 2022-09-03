@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 // TODO: instantiate as child of parent container
 // TODO static class for spawn points
+// TODO: detroy astroid that kills player
 public class AsteroidSplit : MonoBehaviour
 {
     [SerializeField] GameObject splitInto;
