@@ -16,14 +16,14 @@ public class UIManager : MonoBehaviour
     {
         PlayerLife.OnPlayerDeath += GameOver;
         PlayerLife.OnLifeLost += UpdateLives;
-        AsteroidSplit.OnDestroyed += UpdateScore;
+        AsteroidDestruction.OnEarnedPoints += UpdateScore;
     }
 
     private void OnDisable()
     {
         PlayerLife.OnPlayerDeath -= GameOver;
         PlayerLife.OnLifeLost -= UpdateLives;
-        AsteroidSplit.OnDestroyed -= UpdateScore;
+        AsteroidDestruction.OnEarnedPoints -= UpdateScore;
     }
 
     private void GameOver()

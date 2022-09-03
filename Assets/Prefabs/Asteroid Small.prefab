@@ -156,9 +156,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1487759296009917261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a35c3ccf1060ec429bd7d9cd4b578bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fedeba3b2a660b4884491ddee097e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   splitInto: {fileID: 1487759296009917261, guid: 49dd245d745dd72408a164dab5788f88, type: 3}
-  splitToPerform: 2
-  pointsToEarn: 3
+  splitType: 2
+  points: 3

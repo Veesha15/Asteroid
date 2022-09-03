@@ -10,14 +10,10 @@ public class PlayerLife : MonoBehaviour
     public static event Action OnPlayerDeath;
     public static event Action<int> OnLifeLost;
 
-    private void OnEnable()
-    {
-        AsteroidSplit.OnPlayerContact += PlayerDeath;
-    }
 
-    private void OnDisable()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        AsteroidSplit.OnPlayerContact -= PlayerDeath;
+        PlayerDeath();
     }
 
 
