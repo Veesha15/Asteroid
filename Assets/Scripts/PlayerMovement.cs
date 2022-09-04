@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// I personally prefer strafing movement to turning, but I've made both available.
+
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D myRigidBody2D;
@@ -22,12 +24,13 @@ public class PlayerMovement : MonoBehaviour
         yInput = Input.GetAxis("Vertical");
         xInput = Input.GetAxis("Horizontal");
     }
-
+  
     void FixedUpdate()
     {
         //TurningMovement(); // Uncheck Freeze Rotation Z.
         StrafingMovement(); // Check Freeze Rotation Z.
     }
+
 
     private void StrafingMovement()
     {
