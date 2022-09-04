@@ -25,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //TurningMovement(); // uncheck Freeze Rotation Z
-        StrafingMovement();
+        //TurningMovement(); // Uncheck Freeze Rotation Z.
+        StrafingMovement(); // Check Freeze Rotation Z.
     }
 
     private void StrafingMovement()

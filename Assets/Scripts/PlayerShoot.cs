@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: split pool into separate script
 public class PlayerShoot : MonoBehaviour
 {
-    [SerializeField] Transform bulletPoint; // TODO: needs to be outside of player collider or otherwise set to ignore layer
+    [SerializeField] Transform bulletPoint;
     [SerializeField] BulletPool pool;
  
 

@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-// TODO: instantiate as child of parent container
-// TODO static class for spawn points
 public class AsteroidDestruction : MonoBehaviour
 {
     [SerializeField] GameObject splitInto;
@@ -24,7 +22,7 @@ public class AsteroidDestruction : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6) // Bullet layer.
         {           
             OnEarnedPoints?.Invoke(points);
             DestroyAsteroid();

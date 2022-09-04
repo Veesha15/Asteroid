@@ -14,6 +14,7 @@ public class PlayerLife : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerDeath();
+        Destroy(collision.gameObject); // Destroy asteroid that hit player to give player time to get away.
     }
 
 
@@ -28,7 +29,6 @@ public class PlayerLife : MonoBehaviour
             lives--;
             OnLifeLost?.Invoke(lives);
         }
-
     }
 
 

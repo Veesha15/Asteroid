@@ -10,10 +10,10 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnNewAsteroids();
+        SpawnInitialAsteroids();
     }
 
-    private void SpawnNewAsteroids()
+    private void SpawnInitialAsteroids()
     {
         for (int i = 0; i < spawnAmount; i++)
         {

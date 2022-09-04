@@ -13,21 +13,21 @@ public class BulletPool : MonoBehaviour
     private void OnEnable()
     {
         ScreenBounds.OnBulletOutOfBounds += RecycleBullet;
-        Bullet.OnHitSomething += RecycleBullet;
+        Bullet.OnBulletHitSomething += RecycleBullet;
     }
 
     private void OnDisable()
     {
         ScreenBounds.OnBulletOutOfBounds -= RecycleBullet;
-        Bullet.OnHitSomething -= RecycleBullet;
+        Bullet.OnBulletHitSomething -= RecycleBullet;
     }
 
     private void Start()
     {
-        InstantiateBullets();
+        SpawnInitialBullets();
     }
 
-    private void InstantiateBullets()
+    private void SpawnInitialBullets()
     {
         for (int i = 0; i < bulletAmount; i++)
         {
