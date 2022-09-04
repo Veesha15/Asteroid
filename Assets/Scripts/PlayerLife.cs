@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
+    [SerializeField] private Animator anim;
+
     private int lives = 3;
 
     public static event Action OnPlayerDeath;
@@ -20,6 +22,8 @@ public class PlayerLife : MonoBehaviour
 
     private void PlayerDeath()
     {
+        anim.Play("explosion-animation");
+
         if (lives == 0)
         {
             OnPlayerDeath?.Invoke();
